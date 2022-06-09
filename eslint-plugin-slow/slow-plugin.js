@@ -10,10 +10,26 @@ function wait(ms) {
 module.exports = {
   rules: {
     slow: {
-      create() {
+      meta: {
+        messages: {
+            avoidName: "Avoid using variables named '{{ name }}'"
+        }
+      },
+      create(context) {
         wait(5000)
 
-        return {}
+        return {
+          Program(node) {
+            // an arbitrary error
+            context.report({
+              node,
+              messageId: "avoidName",
+              data: {
+                  name: "foo",
+              }
+            });
+          }
+        }
       }
     }
   }

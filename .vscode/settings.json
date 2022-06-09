@@ -3,6 +3,6 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
-  "eslint.codeActionsOnSave.rules": ["!slow/slow", "*"]
+  "eslint.codeActionsOnSave.rules": ["!slow/slow", "*"],
 }
 
