@@ -1,0 +1,18 @@
+{
+  "name": "vscode-eslint-codeactionsonsave",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Sachin Raja <sachinraja2349@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "8.17.0"
+  },
+  "dependencies": {
+    "eslint-plugin-slow": "file:eslint-plugin-slow"
+  }
+}
