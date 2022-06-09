@@ -13,21 +13,27 @@ module.exports = {
       meta: {
         messages: {
             avoidName: "Avoid using variables named '{{ name }}'"
-        }
+        },
+        fixable: 'code'
       },
       create(context) {
-        wait(5000)
-
+        
         return {
-          Program(node) {
-            // an arbitrary error
-            context.report({
-              node,
-              messageId: "avoidName",
-              data: {
-                  name: "foo",
-              }
-            });
+          Identifier(node) {
+            if (node.name.includes('foo')) {
+              wait(3000)
+
+              context.report({
+                  node,
+                  messageId: "avoidName",
+                  data: {
+                      name: "foo",
+                  },
+                  fix(fixer) {
+                    return fixer.replaceText(node, 'bar')
+                  }
+              });
+            }
           }
         }
       }
